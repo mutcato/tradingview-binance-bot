@@ -5,5 +5,9 @@ services:
   backend:
     build: ./
     restart: always
+    volumes:
+      - ./app:/app/
     ports:
       - 5555:80
+    stdin_open: true
+    tty: true
