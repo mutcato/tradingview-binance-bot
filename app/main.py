@@ -10,7 +10,8 @@ from config import settings
 from binance_trade import Binance
 from telebot import Telegram
 
-bot = Telegram(**dict(settings))
+notifier = Telegram(**dict(settings))
+trader = Binance()
 
 app = FastAPI()
 
@@ -20,7 +21,10 @@ def home():
 
 @app.post('/notify')
 def notify(json_data: Dict):
-    bot.send_message(**json_data)
+    if trader.sell_market():
+        notifier.send_message(**json_data)
+    else:
+        print("Olmadı")
     return 
 
 if __name__ == '__main__':
