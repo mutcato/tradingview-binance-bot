@@ -7,10 +7,10 @@ from fastapi import FastAPI
 
 from config import settings
 
-
+from binance_trade import Binance
 from telebot import Telegram
 
-bott = Telegram(**dict(settings))
+bot = Telegram(**dict(settings))
 
 app = FastAPI()
 
@@ -20,11 +20,7 @@ def home():
 
 @app.post('/notify')
 def notify(json_data: Dict):
-    action = json_data.get("action")
-    coin = json_data.get("coin")
-    currency = json_data.get("currency")
-    amount = json_data.get("amount")
-    bott.send_message(action=action, coin=coin, currency=currency, amount=amount)
+    bot.send_message(**json_data)
     return 
 
 if __name__ == '__main__':

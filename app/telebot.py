@@ -23,6 +23,6 @@ class Telegram:
     def send_message(self, **kargs):
         # send the welcoming message
         action_past_tense = "BOUGHT" if kargs['action'] == "BUY" else "SOLD"
-        message = f"{kargs['amount']} {kargs['currency']} {kargs['coin']} {action_past_tense}"
+        message = f"{kargs['amount']} {kargs['currency']} {kargs['coin']} {action_past_tense} at Price: {kargs['close']}"
         result = self.bot.sendMessage(chat_id=self.chat_id, text=message)
         return result
