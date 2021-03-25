@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from functools import lru_cache
-import logging
+from config import logging
 
 import telegram
 
 
+logger = logging.getLogger()
 
 class Telegram:
     def __init__(self, **kwargs):
@@ -22,6 +23,8 @@ class Telegram:
     def send_message(self, **kargs):
         # send the welcoming message
         action_past_tense = "BOUGHT" if kargs['action'] == "BUY" else "SOLD"
-        message = f"{kargs['amount']} {kargs['currency']} {kargs['ticker']} {action_past_tense} at Price: {kargs['close']}"
+        coin = kargs['ticker'].replace("USDT","")
+        message = f"{kargs['amount']} {coin} {action_past_tense} at Price: {kargs['close']}"
+        logger.info(message)
         result = self.bot.sendMessage(chat_id=self.chat_id, text=message)
         return result

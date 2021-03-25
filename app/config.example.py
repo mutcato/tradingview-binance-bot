@@ -1,6 +1,7 @@
 from pydantic import BaseSettings
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv()
 
@@ -12,7 +13,8 @@ class Settings(BaseSettings):
     # Create a Telegram group. Add bot to this group. Say /my_id @botname
     # https://api.telegram.org/bot1792:3ew0/getUpdates
     CHAT_ID: str = ""
-
+    LOG_FORMAT = "%(levelname)s %(filename)s line:%(lineno)d %(asctime)s - %(message)s"
+    logging.basicConfig(filename="logs/admin.log", level=logging.INFO, format=LOG_FORMAT)
     class Config:
         env_file = "../.env"
 
@@ -25,7 +27,6 @@ class TestSettings(Settings):
 
 
 class ProdSettings(Settings):
-    # Test your bot before playing with real money: https://testnet.binance.vision
     BINANCE_API_KEY: str = ""
     BINANCE_API_SECRET: str = ""
 
