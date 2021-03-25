@@ -30,5 +30,5 @@ class ProdSettings(Settings):
     BINANCE_API_SECRET: str = ""
 
 
-# Set it TestSettings() or ProdSettings
+# Set it TestSettings() or ProdSettings()
 settings = TestSettings()
