@@ -1,0 +1,25 @@
+INFO server.py line:64 2021-03-25 19:42:31,971 - Started server process [39]
+INFO on.py line:26 2021-03-25 19:42:31,972 - Waiting for application startup.
+INFO on.py line:38 2021-03-25 19:42:31,973 - Application startup complete.
+ERROR binance_trade.py line:39 2021-03-25 19:42:39,794 - Error on limit_order 'API Exception' APIError(code=-1013): Filter failure: PERCENT_PRICE
+INFO main.py line:40 2021-03-25 19:42:39,795 - Order result: None
+ERROR binance_trade.py line:39 2021-03-25 19:43:10,785 - Error on limit_order 'API Exception' APIError(code=-1013): Filter failure: PERCENT_PRICE
+INFO main.py line:40 2021-03-25 19:43:10,786 - Order result: None
+INFO binance_trade.py line:19 2021-03-25 19:43:33,983 - Looked general info
+INFO binance_trade.py line:19 2021-03-25 19:43:52,164 - Looked general info
+INFO binance_trade.py line:23 2021-03-25 19:44:11,396 - Looked ETH info
+INFO server.py line:64 2021-03-25 19:44:53,073 - Started server process [8]
+INFO on.py line:26 2021-03-25 19:44:53,073 - Waiting for application startup.
+INFO on.py line:38 2021-03-25 19:44:53,074 - Application startup complete.
+INFO binance_trade.py line:19 2021-03-25 19:45:09,211 - Looked general info
+INFO server.py line:239 2021-03-25 19:46:06,162 - Shutting down
+INFO on.py line:43 2021-03-25 19:46:06,263 - Waiting for application shutdown.
+INFO on.py line:46 2021-03-25 19:46:06,264 - Application shutdown complete.
+INFO server.py line:77 2021-03-25 19:46:06,264 - Finished server process [8]
+INFO server.py line:64 2021-03-25 19:46:07,933 - Started server process [10]
+INFO on.py line:26 2021-03-25 19:46:07,934 - Waiting for application startup.
+INFO on.py line:38 2021-03-25 19:46:07,935 - Application startup complete.
+INFO server.py line:239 2021-03-25 19:46:12,664 - Shutting down
+INFO on.py line:43 2021-03-25 19:46:12,765 - Waiting for application shutdown.
+INFO on.py line:46 2021-03-25 19:46:12,766 - Application shutdown complete.
+INFO server.py line:77 2021-03-25 19:46:12,767 - Finished server process [10]

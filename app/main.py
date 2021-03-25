@@ -28,6 +28,8 @@ def market_order(json_data: Dict):
     # order_result = {'symbol': 'LTCUSDT', 'orderId': 1487076226, 'orderListId': -1, 'clientOrderId': '8Y9hHgc5kGv28MKn1h86Yj', 'transactTime': 1616546780955, 'price': '0.00000000', 'origQty': '0.06000000', 'executedQty': '0.06000000', 'cummulativeQuoteQty': '11.01300000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'fills': [{'price': '183.55000000', 'qty': '0.06000000', 'commission': '0.00006000', 'commissionAsset': 'LTC', 'tradeId': 123232612}]}
     logger.info(f"Order result: {order_result}")
     if order_result:
+        json_data["price"] = order_result["fills"][0]["price"]
+        json_data["cummulative"] = order_result["cummulativeQuoteQty"]
         notifier.send_message(**json_data)
 
     return 
@@ -40,6 +42,8 @@ def limit_order(json_data: Dict):
     logger.info(f"Order result: {order_result}")
 
     if order_result:
+        json_data["price"] = order_result["fills"][0]["price"]
+        json_data["cummulative"] = order_result["cummulativeQuoteQty"]
         notifier.send_message(**json_data)
 
     return 
