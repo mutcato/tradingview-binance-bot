@@ -8,6 +8,6 @@ services:
     volumes:
       - ./app:/app/
     ports:
-      - 5555:80  #localPort:containerPort
+      - 80:80  #localPort:containerPort
     stdin_open: true
     tty: true
