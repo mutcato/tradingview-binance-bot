@@ -24,7 +24,7 @@ class Telegram:
         # send the welcoming message
         action_past_tense = "BOUGHT" if kargs['action'] == "BUY" else "SOLD"
         coin = kargs['ticker'].replace("USDT","")
-        message = f"{kargs['amount']} {coin} {action_past_tense} at Price: {kargs['price']}, Cummulative trade: {kwargs['cummulative']}"
+        message = f"{kargs['amount']} {coin} {action_past_tense} at Price: {kargs['price']}, Cummulative trade: {kargs['cummulative']}"
         logger.info(message)
         result = self.bot.sendMessage(chat_id=self.chat_id, text=message)
         return result
