@@ -1,9 +1,5 @@
 from pydantic import BaseSettings
-from dotenv import load_dotenv
-import os
 import logging
-
-load_dotenv()
 
 
 class Settings(BaseSettings):
@@ -15,8 +11,6 @@ class Settings(BaseSettings):
     CHAT_ID: str = ""
     LOG_FORMAT = "%(levelname)s %(filename)s line:%(lineno)d %(asctime)s - %(message)s"
     logging.basicConfig(filename="logs/admin.log", level=logging.INFO, format=LOG_FORMAT)
-    class Config:
-        env_file = "../.env"
 
     
 class TestSettings(Settings):
