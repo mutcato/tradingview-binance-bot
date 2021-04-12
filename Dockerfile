@@ -3,10 +3,6 @@ EXPOSE 80
 
 RUN apt-get update
 RUN apt-get install build-essential libssl-dev libffi-dev python3-dev cargo --yes
-<<<<<<< HEAD
-=======
-
->>>>>>> c1d998ebfafc3aaed84831b4366003a7cdbb0cd1
 RUN pip install --upgrade pip
 
 # copy whole installation (minus dockerignore)

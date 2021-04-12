@@ -48,12 +48,26 @@ def limit_order(json_data: Dict):
 
     return 
 
+@app.post("/stop_limit_order")
+def stop_limit_order(json_data: Dict):
+    # json_data: {"ticker":"LTCUSDT", "action": "BUY", "amount":0.06, "price":155, "stopPrice"}
+    order_result = trader.stop_limit_order(json_data["ticker"], json_data["action"], json_data["amount"], json_data["price"], json_data["stopPrice"])
+    # order_result = 1
+    logger.info(f"Order result: {order_result}")
+
+    if order_result:
+        json_data["price"] = order_result["fills"][0]["price"]
+        json_data["cummulative"] = order_result["cummulativeQuoteQty"]
+        notifier.send_message(**json_data)
+
+    return 
+
 @app.get("/binance_info")
 def binance_info():
     return trader.show_info()
 
 @app.get("/asset/{asset}")
-def binance_info(asset: str):
+def asset_info(asset: str):
     return trader.show_asset_info(asset)
 
 if __name__ == '__main__':

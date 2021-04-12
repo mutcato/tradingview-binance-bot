@@ -55,5 +55,23 @@ class Binance:
         except BinanceOrderException as e:
             logger.error(f"Error on market_order 'Order Exception' {e}")
 
+    def stop_limit_order(self, ticker, action, amount, price, stopPrice):
+        try:
+            buy_limit = self.client.create_order(
+                symbol=ticker,
+                side=action, # BUY or SELL
+                type="LIMIT",
+                timeInForce="GTC",
+                quantity=amount,
+                price=price,
+                stopPrice=stopPrice)
+
+            return buy_limit
+
+        except BinanceAPIException as e:
+            logger.error(f"Error on stop_limit_order 'API Exception' {e}")
+        except BinanceOrderException as e:
+            logger.error(f"Error on stop_limit_order 'Order Exception' {e}")
+
 
         
